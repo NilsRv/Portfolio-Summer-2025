@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+  color: white;
+  font-family: sans-serif;
+}
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+
+.grainy-bg {
+  background-color: #3b3838;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23noise)' opacity='0.08'/></svg>");
+  background-repeat: repeat;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Avenir Font Family/AvenirLTStd-Medium.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Great Vibes";
+  src: url("/fonts/great-vibes/GreatVibes-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Headlines";
+  src: url("/fonts/headlines/Headlines-Bold.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-avenir: "Avenir", sans-serif;
+  --font-great-vibes: "Great Vibes", sans-serif;
+  --font-headlines: "Headlines", Impact, "Arial Black", sans-serif;
+}
+
+@keyframes moveShadow {
+  0% {
+    transform: translate(-20%, -20%);
+  }
+  50% {
+    transform: translate(20%, 20%);
+  }
+  100% {
+    transform: translate(-20%, -20%);
+  }
+}
+
+.moving-shadow {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 60%
+  );
+
+  animation: moveShadow 15s ease-in-out infinite;
+  filter: blur(120px);
+}
